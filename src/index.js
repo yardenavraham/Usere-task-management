@@ -4,23 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import theme from './assetes/theme'
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#35495e',
-    },
-    secondary: {
-      main: '#347474'
-    },
-    error: {
-      main: '#ff7e67'
-    },
-    success: {
-      main: '#42b883'
-    }
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#35495e',
+//     },
+//     secondary: {
+//       main: '#347474'
+//     },
+//     error: {
+//       main: '#ff7e67'
+//     },
+//     success: {
+//       main: '#42b883'
+//     }
+//   },
+// });
 
 ReactDOM.render(
   <React.StrictMode>

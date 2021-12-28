@@ -11,34 +11,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
-
-
-function UserComp(props) {
-
-    const theme = createTheme({
-        palette: {
-          primary: {
-            main: '#35495e',
-          },
-          secondary: {
-            main: '#347474'
-          },
-          error: {
-            main: '#ff7e67'
-          },
-          success: {
-            main: '#42b883'
-          }
-        },
-      });
-      
+function UserComp(props) {     
     const useStyles = makeStyles(theme => ({
         card: {
-            border: props => (props.isCompleted ? `1px solid ${theme.palette.success.main}`: `1px solid ${theme.palette.error.main}`),
+            border: props => (props.isCompleted ? `3px solid ${theme.palette.success.main}`: `3px solid ${theme.palette.error.main}`),
             minWidth :"300px",
+            padding: 10,
         },
     }));
 
@@ -60,21 +39,17 @@ function UserComp(props) {
 
 
     return (
-        <div
-        // className={props.isCompleted ? "greenBorder" : "redBorder"}
-        //className ={classes.card}
-        ><div>
-                <Stack spacing={2}>
+                <Stack spacing={2} style={{ padding:10, marginHorizontal: 5 }}>
                     <Card className={classes.card}>
                         <Stack spacing={2}>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            <Box >
                                 <TextField value={user.id} type="text" onMouseEnter={() => setShowTasks(true)} onClick={() => setTasksFunc(user.id)} onChange={e => setUser({ ...user, id: e.target.value })} id="filled-basic" label="ID" variant="filled" />
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            <Box>
                                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                                 <TextField value={user.name} type="text" onChange={e => setUser({ ...user, name: e.target.value })} id="input-with-sx" variant="standard" />
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            <Box >
                                 <EmailRoundedIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                                 <TextField value={user.email} type="text" onChange={e => setUser({ ...user, email: e.target.value })} id="input-with-sx" variant="standard" />
                             </Box>
@@ -86,19 +61,19 @@ function UserComp(props) {
                         </Stack>
                         {isShownHoverContent && (
                             <div onClick={() => setIsShownHoverContent(false)}>
-                                <Stack spacing={2}>
-                                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                                <Stack spacing={2} style ={{paddingTop: 20}}>
+                                    <Box>
                                         <TextField defaultValue={user.address.street} type="text" onChange={e => setUser({ ...user, street: e.target.value })}
                                             id="outlined-helperText"
                                             label="Street"
                                             size="small"></TextField>
                                     </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                                    <Box >
                                         <TextField defaultValue={user.address.city} type="text" onChange={e => setUser({ ...user, city: e.target.value })} id="outlined-helperText"
                                             label="City"
                                             size="small"></TextField>
                                     </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                                    <Box>
                                         <TextField defaultValue={user.address.zipcode} type="text" onChange={e => setUser({ ...user, zipcode: e.target.value })} id="outlined-helperText"
                                             label="Zip code"
                                             size="small"></TextField>
@@ -107,8 +82,6 @@ function UserComp(props) {
                             </div>)}
                     </Card>
                 </Stack>
-            </div>
-        </div >
 
     );
 }

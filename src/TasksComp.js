@@ -13,16 +13,16 @@ function TasksComp(props) {
     return (
 
 
-        <div>
-            <Card sx={{ minWidth: 275 }}>
+        <Stack spacing={2} style={{ padding: 10, marginHorizontal: 5, }}>
+            <Card sx={{ minWidth: 275, border: 3, borderColor:"secondary.main"}}>
                 <CardContent>
 
                     <Typography variant="body2">
                         <Stack spacing={2}>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            <Box >
                                 <TextField value={props.user.title} type="text" id="filled-basic" label="Title" variant="filled" />
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            <Box >
                                 <TextField value={props.user.completed} type="text" id="filled-basic" label="Compeleted" variant="filled" />
                             </Box>
 
@@ -32,11 +32,11 @@ function TasksComp(props) {
                 </CardContent>
                 {!props.user.completed && (
                     <CardActions>
-                        <Button size="small" onClick={() => props.callbackUpdateTask(props.user)}>Mark completed</Button>
+                        <Button color="secondary" variant="contained" size="small" onClick={() => props.callbackUpdateTask(props.user)}>Mark completed</Button>
                     </CardActions>)
                 }
             </Card>
-        </div>
+        </Stack>
     );
 }
 

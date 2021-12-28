@@ -17,17 +17,18 @@ Users task management web application. </br>
 
 
 ## Screen shots
-![login]()
-![search movie]()
-![search results]()
+![Main Screen]()
+![Add user]()
+![User added]()
 
 
 ## Built with
-Developed with React.
+Developed with React and Material UI.
 
 ## Installation
 Install Node.js</br>
-npm i axios @mui/styles @mui/icons @mui/material</br>
+npm i axios </br>
+
 
 ## How to use? 
 Click to see the [demo]() of my app. </br>

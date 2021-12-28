@@ -14,10 +14,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
-
-
-
 import Tooltip from '@mui/material/Tooltip';
+import { getCheckboxUtilityClass } from '@mui/material';
 
 
 function ManageUsers(props) {
@@ -52,8 +50,13 @@ function ManageUsers(props) {
 
 
   const updateUser = (item) => {
+
+
     const index = users.findIndex(u => u.id === item.id);
+
+    
     setUsers(users.splice(index, 1, item));
+
   }
 
   const deleteUser = (item) => {
@@ -68,7 +71,19 @@ function ManageUsers(props) {
     newItem.completed = true;
     const index = todos.findIndex(u => u.id === newItem.id);
     setTodos(todos.splice(index, 1, newItem));
+    //checkIfCompleted(newItem.id);
   }
+
+  // const checkIfCompleted = (itemId) => {
+  //   const tasksUsers = users.filter(x=> x.id === itemId);
+  //   const checkCompleted = tasksUsers.map(x=> x.completed);
+  //   const index = todos.findIndex(u => u.id === itemId);
+  //   if (!checkCompleted.includes(false))
+  //   {
+  //     setUsers({ ...index, completed: true })
+  //   }
+    
+  // }
 
   const addUser = (user) => {
     setUsers(users.splice(0, 0, { ...user, id: users.length + 1 }));
@@ -88,47 +103,57 @@ function ManageUsers(props) {
 
   return (
     <Grid container spacing={2} >
-      <Grid item lg={4}>
-        <TextField type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
-        <div className={classes.centerDiv}>
-          <Tooltip title="Add user">
-            <IconButton className={classes.center} aria-label="add-user"  >
-              <AddCircleRoundedIcon onClick={() => {
-                setIsAddUser(true)
-                setIsAddPost(false)
-                setIsAddTodo(false)
-                setShowTasks(false)
-              }} />
-            </IconButton>
-          </Tooltip>
+      <Grid item lg={12} >
 
-          <ul>
-            {users.filter(item => {
-              return item.name.toLowerCase().includes(searchInput) || item.email.toLowerCase().includes(searchInput)
-            })
-              .map(item => {
-                let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed);
-                let isCompleted = !arr.includes(false);
-                return (
-                  <UserComp key={item.id}
-                    item={item}
-                    isCompleted={isCompleted}
-                    usersUrl={props.usersUrl}
-                    callback={item => {
-                      setShowTasks(item.showTasks);
-                      setUserId(item.userId)
-                    }}
-                    callbackUpdate={item =>
-                      updateUser(item)
-                    }
-                    callbackDelete={item =>
-                      deleteUser(item)
-                    }
-                  ></UserComp>
-                )
-              })}
-          </ul>
-        </div>
+        <TextField type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
+        <Button onClick={() => {
+          setIsAddUser(true)
+          setIsAddPost(false)
+          setIsAddTodo(false)
+          setShowTasks(false)
+        }}
+          variant="contained" endIcon={<PersonAddAltRoundedIcon />}>
+          Add user
+        </Button>
+
+        <Button onClick={() => setIsAddTodo(true)} variant="contained" endIcon={<AddTaskRoundedIcon />}>
+          Add task
+        </Button>
+
+
+        <Button onClick={() => setIsAddPost(true)} variant="contained" endIcon={<AddCircleRoundedIcon />}>
+          Add post
+        </Button>
+      </Grid>
+
+      <Grid item lg={4}>
+        <ul>
+          {users.filter(item => {
+            return item.name.toLowerCase().includes(searchInput) || item.email.toLowerCase().includes(searchInput)
+          })
+            .map(item => {
+              let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed);
+              let isCompleted = !arr.includes(false);
+              return (
+                <UserComp key={item.id}
+                  item={item}
+                  isCompleted={isCompleted}
+                  usersUrl={props.usersUrl}
+                  callback={item => {
+                    setShowTasks(item.showTasks);
+                    setUserId(item.userId)
+                  }}
+                  callbackUpdate={item =>
+                    updateUser(item)
+                  }
+                  callbackDelete={item =>
+                    deleteUser(item)
+                  }
+                ></UserComp>
+              )
+            })}
+        </ul>
+
 
 
       </Grid>
@@ -137,12 +162,9 @@ function ManageUsers(props) {
 
       {showTasks && (<Grid item lg={4}>
         {!isAddTodo && (
-          <div className={classes.center}>
-            <Tooltip title="Add task">
-              <IconButton aria-label="add"  >
-                <AddTaskRoundedIcon onClick={() => setIsAddTodo(true)} />
-              </IconButton>
-            </Tooltip>
+          
+          <div >
+
             <ul>
               {todos.filter(item => item.userId === userId)
                 .slice(0, 5)
@@ -165,13 +187,8 @@ function ManageUsers(props) {
 
       {showTasks && (<Grid item lg={4}>
         {!isAddPost && (
-          <div className={classes.center}>
-            <Tooltip title="Add post">
+          <div >
 
-              <IconButton aria-label="add"  >
-                <AddCircleRoundedIcon onClick={() => setIsAddPost(true)} />
-              </IconButton>
-            </Tooltip>
             <ul>
               {posts.filter(item => item.userId === userId).slice(0, 10).map(item => {
                 return (<PostsComp key={item.id}
