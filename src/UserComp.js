@@ -11,13 +11,22 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
+import Tooltip from '@mui/material/Tooltip';
+
 
 function UserComp(props) {     
     const useStyles = makeStyles(theme => ({
         card: {
-            border: props => (props.isCompleted ? `3px solid ${theme.palette.success.main}`: `3px solid ${theme.palette.error.main}`),
+            border: props => (props.isCompleted ? `5px solid ${theme.palette.success.main}`: `5px solid ${theme.palette.error.main}`),
             minWidth :"300px",
             padding: 10,
+            backgroundColor: `${theme.palette.secondary.main}`
+
+        },
+        mainStack:{
+            padding:10, 
+            marginHorizontal: 5 ,
+
         },
     }));
 
@@ -39,12 +48,14 @@ function UserComp(props) {
 
 
     return (
-                <Stack spacing={2} style={{ padding:10, marginHorizontal: 5 }}>
+                <Stack spacing={2} className={classes.mainStack}>
                     <Card className={classes.card}>
                         <Stack spacing={2}>
-                            <Box >
+                            <Box>
+                            <Tooltip title="Click to show tasks and posts" placement="right">
                                 <TextField value={user.id} type="text" onMouseEnter={() => setShowTasks(true)} onClick={() => setTasksFunc(user.id)} onChange={e => setUser({ ...user, id: e.target.value })} id="filled-basic" label="ID" variant="filled" />
-                            </Box>
+                             </Tooltip>
+                             </Box>
                             <Box>
                                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                                 <TextField value={user.name} type="text" onChange={e => setUser({ ...user, name: e.target.value })} id="input-with-sx" variant="standard" />
@@ -63,18 +74,18 @@ function UserComp(props) {
                             <div onClick={() => setIsShownHoverContent(false)}>
                                 <Stack spacing={2} style ={{paddingTop: 20}}>
                                     <Box>
-                                        <TextField defaultValue={user.address.street} type="text" onChange={e => setUser({ ...user, street: e.target.value })}
+                                        <TextField value={user.address.street} type="text" onChange={e => setUser({ ...user, street: e.target.value })}
                                             id="outlined-helperText"
                                             label="Street"
                                             size="small"></TextField>
                                     </Box>
                                     <Box >
-                                        <TextField defaultValue={user.address.city} type="text" onChange={e => setUser({ ...user, city: e.target.value })} id="outlined-helperText"
+                                        <TextField value={user.address.city} type="text" onChange={e => setUser({ ...user, city: e.target.value })} id="outlined-helperText"
                                             label="City"
                                             size="small"></TextField>
                                     </Box>
                                     <Box>
-                                        <TextField defaultValue={user.address.zipcode} type="text" onChange={e => setUser({ ...user, zipcode: e.target.value })} id="outlined-helperText"
+                                        <TextField value={user.address.zipcode} type="text" onChange={e => setUser({ ...user, zipcode: e.target.value })} id="outlined-helperText"
                                             label="Zip code"
                                             size="small"></TextField>
                                     </Box>

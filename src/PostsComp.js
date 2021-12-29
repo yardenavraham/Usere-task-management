@@ -13,18 +13,12 @@ function PostsComp(props) {
 
     return (
         <Stack spacing={2} style={{ padding: 10, marginHorizontal: 5, }}>
-            <Card sx={{ minWidth: 275, border: 3, borderColor:"secondary.main"}}>
+            <Card sx={{ minWidth: 275, border: 5, borderColor:"primary.main"}}>
                 <CardContent>
-                    <Typography variant="body2">
                         <Stack spacing={2}>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                                <TextField value={props.user.title} type="text" id="filled-basic" label="Title" variant="filled" />
-                            </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                                <TextField value={props.user.body} type="text" id="filled-basic" label="Body" variant="filled" />
-                            </Box>
+                            <TextField value={props.user.title} type="text" id="outlined-helperText" label="Title" size="small" />
+                            <TextField value={props.user.body} type="text" id="outlined-helperText" label="Body" size="small" />
                         </Stack>
-                    </Typography>
                 </CardContent>
             </Card>
         </Stack>

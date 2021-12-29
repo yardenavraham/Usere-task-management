@@ -5,6 +5,8 @@ import PostsComp from './PostsComp';
 import AddUser from './AddUser';
 import AddTodo from './AddTodo'
 import AddPost from './AddPost'
+import Box from '@mui/material/Box';
+
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import IconButton from '@mui/material/IconButton';
@@ -16,6 +18,7 @@ import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
 import Tooltip from '@mui/material/Tooltip';
 import { getCheckboxUtilityClass } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 
 function ManageUsers(props) {
@@ -30,13 +33,12 @@ function ManageUsers(props) {
   const [isAddPost, setIsAddPost] = useState(false);
   const [isAddUser, setIsAddUser] = useState(false);
 
+
   const useStyles = makeStyles(theme => ({
-    center: {
-      justifyContent: "center", alignItems: "center"
+    titles: {
+      letterSpacing: 5, color: "white"
     },
-    centerDiv: {
-      display: "flex", flexDirection: "column",
-    }
+
   }));
 
   const classes = useStyles();
@@ -54,7 +56,7 @@ function ManageUsers(props) {
 
     const index = users.findIndex(u => u.id === item.id);
 
-    
+
     setUsers(users.splice(index, 1, item));
 
   }
@@ -71,19 +73,8 @@ function ManageUsers(props) {
     newItem.completed = true;
     const index = todos.findIndex(u => u.id === newItem.id);
     setTodos(todos.splice(index, 1, newItem));
-    //checkIfCompleted(newItem.id);
   }
 
-  // const checkIfCompleted = (itemId) => {
-  //   const tasksUsers = users.filter(x=> x.id === itemId);
-  //   const checkCompleted = tasksUsers.map(x=> x.completed);
-  //   const index = todos.findIndex(u => u.id === itemId);
-  //   if (!checkCompleted.includes(false))
-  //   {
-  //     setUsers({ ...index, completed: true })
-  //   }
-    
-  // }
 
   const addUser = (user) => {
     setUsers(users.splice(0, 0, { ...user, id: users.length + 1 }));
@@ -104,35 +95,41 @@ function ManageUsers(props) {
   return (
     <Grid container spacing={2} >
       <Grid item lg={12} >
+        <Stack spacing={3} direction="row">
+          <TextField color="success" type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
+          <Button color="success" onClick={() => {
+            setIsAddUser(true)
+            setIsAddPost(false)
+            setIsAddTodo(false)
+            setShowTasks(false)
+          }}
+            variant="contained" endIcon={<PersonAddAltRoundedIcon />}>
+            Add user
+          </Button>
 
-        <TextField type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
-        <Button onClick={() => {
-          setIsAddUser(true)
-          setIsAddPost(false)
-          setIsAddTodo(false)
-          setShowTasks(false)
-        }}
-          variant="contained" endIcon={<PersonAddAltRoundedIcon />}>
-          Add user
-        </Button>
-
-        <Button onClick={() => setIsAddTodo(true)} variant="contained" endIcon={<AddTaskRoundedIcon />}>
-          Add task
-        </Button>
+          <Button disabled={!showTasks} color="success" onClick={() => setIsAddTodo(true)} variant="contained" endIcon={<AddTaskRoundedIcon />}>
+            Add task
+          </Button>
 
 
-        <Button onClick={() => setIsAddPost(true)} variant="contained" endIcon={<AddCircleRoundedIcon />}>
-          Add post
-        </Button>
+          <Button  disabled={!showTasks} color="success" onClick={() => setIsAddPost(true)} variant="contained" endIcon={<AddCircleRoundedIcon />}>
+            Add post
+          </Button>
+        </Stack>
       </Grid>
 
+
       <Grid item lg={4}>
+        <Typography component="div" align="center" variant="h6">
+          <Box className={classes.titles}>Users</Box>
+        </Typography>
         <ul>
           {users.filter(item => {
             return item.name.toLowerCase().includes(searchInput) || item.email.toLowerCase().includes(searchInput)
           })
             .map(item => {
               let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed);
+              console.log(arr);
               let isCompleted = !arr.includes(false);
               return (
                 <UserComp key={item.id}
@@ -161,13 +158,16 @@ function ManageUsers(props) {
 
 
       {showTasks && (<Grid item lg={4}>
+        <Typography component="div" align="center" variant="h6">
+          <Box className={classes.titles}>Tasks</Box>
+        </Typography>
         {!isAddTodo && (
-          
+
           <div >
 
             <ul>
               {todos.filter(item => item.userId === userId)
-                .slice(0, 5)
+                // .slice(0, 5)
                 .map(item => {
                   return (
                     <TasksComp key={item.id}
@@ -186,6 +186,9 @@ function ManageUsers(props) {
       </Grid>)}
 
       {showTasks && (<Grid item lg={4}>
+        <Typography component="div" align="center" variant="h6">
+          <Box className={classes.titles}>Posts</Box>
+        </Typography>
         {!isAddPost && (
           <div >
 

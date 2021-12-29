@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import ManageUsers from './ManageUsers'
+import { makeStyles } from '@mui/styles';
+
 
 
 function App() {
@@ -8,6 +10,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [todos, setTodos] = useState([]);
+  const useStyles = makeStyles(theme => ({
+    bg: {
+      backgroundColor: `${theme.palette.primary.dark}`,
+    },
+  }));
+
+  const classes = useStyles();
 
 
   useEffect(async () => {
@@ -20,11 +29,7 @@ function App() {
   }, [])
 
   return (
-    <div style={{ backgroundColor:'#eaeef3'}}>
-  <ManageUsers
-
-    users={users} usersUrl="https://jsonplaceholder.typicode.com/users" posts={posts} todos={todos} ></ManageUsers >
-    </div >
+      <ManageUsers users={users} usersUrl="https://jsonplaceholder.typicode.com/users" posts={posts} todos={todos} ></ManageUsers >
   );
 }
 
