@@ -120,6 +120,7 @@ function ManageUsers(props) {
             return item.name.toLowerCase().includes(searchInput) || item.email.toLowerCase().includes(searchInput)
           })
             .map(item => {
+              
               let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed).slice(0,5);
               let isCompleted = !arr.includes(false);
               return (
