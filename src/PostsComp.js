@@ -1,13 +1,5 @@
 
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
-import { makeStyles } from '@mui/material';
-
-
+import {Stack,Card,CardContent, TextField} from '@mui/material';
 
 function PostsComp(props) {
 

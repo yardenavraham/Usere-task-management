@@ -1,17 +1,5 @@
-import { useState, useEffect } from 'react'
-import { createTheme } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-
-
-
+import { useState, useEffect } from 'react';
+import { Stack, Button, TextField, Box, Typography, Card, CardActions, CardContent } from '@mui/material';
 
 function AddPost(props) {
 
@@ -28,31 +16,24 @@ function AddPost(props) {
 
     return (
         <>
-            <h3> Add new post</h3>
-            <form >
-                <Card sx={{ minWidth: 275 }}>
+            <br></br>
+            <Stack spacing={2} style={{ padding: 10, marginHorizontal: 5, }}>
+                <Card sx={{ minWidth: 275, border: 5, borderColor: "primary.main" }}>
                     <CardContent>
-                        <Typography variant="body2">
-                            <Stack spacing={2}>
-                                <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                                    <TextField onChange={e => setPost({ ...post, title: e.target.value })} type="text" id="filled-basic" label="Title" variant="filled" />
-                                </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                                    <TextField onChange={e => setPost({ ...post, body: e.target.value })} type="text" id="filled-basic" label="Body" variant="filled" />
-                                </Box>
-
-                            </Stack>
-                        </Typography>
+                        <Stack spacing={2}>
+                                <TextField onChange={e => setPost({ ...post, title: e.target.value })} type="text" id="outlined-basic" label="Title" variant="outlined" />
+                                <TextField onChange={e => setPost({ ...post, body: e.target.value })} type="text" id="outlined-basic" label="Body" variant="outlined" />
+                        </Stack>
                     </CardContent>
                     <CardActions>
-                        <Button size="small" onClick={() => props.callbackAddPost(post)}>Add</Button>
-                        <Button size="small" onClick={() => props.callbackIsAddPost()}>Cancel</Button>
+                        <Button color="success" variant="contained" size="small" onClick={() => props.callbackAddPost(post)}>Add</Button>
+                        <Button color="success" variant="contained" size="small" onClick={() => props.callbackIsAddPost()}>Cancel</Button>
                     </CardActions>
                 </Card>
-            </form>
-
-
+            </Stack>
         </>
+
+
     );
 }
 

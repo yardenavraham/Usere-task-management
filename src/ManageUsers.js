@@ -5,20 +5,10 @@ import PostsComp from './PostsComp';
 import AddUser from './AddUser';
 import AddTodo from './AddTodo'
 import AddPost from './AddPost'
-import Box from '@mui/material/Box';
-
-import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
-import IconButton from '@mui/material/IconButton';
-import AddTaskRoundedIcon from '@mui/icons-material/AddTaskRounded';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
+import { AddCircleRounded, PersonAddAltRounded, AddTaskRounded } from '@mui/icons-material';
+import { Stack, Button, TextField, Box, Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import Tooltip from '@mui/material/Tooltip';
-import { getCheckboxUtilityClass } from '@mui/material';
-import Typography from '@mui/material/Typography';
+
 
 
 function ManageUsers(props) {
@@ -92,27 +82,29 @@ function ManageUsers(props) {
 
 
 
+
   return (
     <Grid container spacing={2} >
       <Grid item lg={12} >
         <Stack spacing={3} direction="row">
-          <TextField color="success" type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
+          <TextField
+          color="success" type="text" onChange={e => setSearchInput(e.target.value)} id="outlined-basic" label="Search user" variant="outlined" />
           <Button color="success" onClick={() => {
             setIsAddUser(true)
             setIsAddPost(false)
             setIsAddTodo(false)
             setShowTasks(false)
           }}
-            variant="contained" endIcon={<PersonAddAltRoundedIcon />}>
+            variant="contained" endIcon={<PersonAddAltRounded />}>
             Add user
           </Button>
 
-          <Button disabled={!showTasks} color="success" onClick={() => setIsAddTodo(true)} variant="contained" endIcon={<AddTaskRoundedIcon />}>
+          <Button disabled={!showTasks} color="success" onClick={() => setIsAddTodo(true)} variant="contained" endIcon={<AddTaskRounded />}>
             Add task
           </Button>
 
 
-          <Button  disabled={!showTasks} color="success" onClick={() => setIsAddPost(true)} variant="contained" endIcon={<AddCircleRoundedIcon />}>
+          <Button disabled={!showTasks} color="success" onClick={() => setIsAddPost(true)} variant="contained" endIcon={<AddCircleRounded />}>
             Add post
           </Button>
         </Stack>
@@ -128,8 +120,7 @@ function ManageUsers(props) {
             return item.name.toLowerCase().includes(searchInput) || item.email.toLowerCase().includes(searchInput)
           })
             .map(item => {
-              let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed);
-              console.log(arr);
+              let arr = todos.filter(itemTodo => itemTodo.userId === item.id).map(itemCompleted => itemCompleted.completed).slice(0,5);
               let isCompleted = !arr.includes(false);
               return (
                 <UserComp key={item.id}
@@ -167,7 +158,7 @@ function ManageUsers(props) {
 
             <ul>
               {todos.filter(item => item.userId === userId)
-                // .slice(0, 5)
+                .slice(0, 5)
                 .map(item => {
                   return (
                     <TasksComp key={item.id}
@@ -203,9 +194,9 @@ function ManageUsers(props) {
             </ul>
           </div>)}
 
-        {isAddPost && (<Grid item lg={4}>
+        {isAddPost && (
           <AddPost length={posts.length + 1} userId={userId} callbackAddPost={item => addPost(item)} callbackIsAddPost={item => setIsAddPost(false)}></AddPost>
-        </Grid>)}
+        )}
       </Grid>)}
 
 

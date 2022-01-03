@@ -3,8 +3,6 @@ import axios from 'axios';
 import ManageUsers from './ManageUsers'
 import { makeStyles } from '@mui/styles';
 
-
-
 function App() {
 
   const [users, setUsers] = useState([]);
@@ -17,7 +15,6 @@ function App() {
   }));
 
   const classes = useStyles();
-
 
   useEffect(async () => {
     let respUsers = await axios.get("https://jsonplaceholder.typicode.com/users");

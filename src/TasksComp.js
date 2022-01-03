@@ -1,18 +1,8 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+
+import {Stack,Button,TextField,Card, CardActions, CardContent} from '@mui/material';
 
 function TasksComp(props) {
-
-
     return (
-
-
         <Stack spacing={2} style={{ padding: 10, marginHorizontal: 5, }}>
             <Card sx={{ minWidth: 275, border: 5, borderColor:"primary.main"}}>
                 <CardContent>

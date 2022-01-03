@@ -1,17 +1,7 @@
-import { useState, useEffect } from 'react'
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { useState } from 'react'
+import { AccountCircle,EmailRounded } from '@mui/icons-material';
+import { Stack,Button,TextField,Box, Typography, Card, CardActions, CardContent} from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-
-
 
 function AddUser(props) {
     const [user, setUser] = useState({
@@ -29,8 +19,7 @@ function AddUser(props) {
     }));
 
     const classes = useStyles();
-
-
+    
     return (
         <>
         <br></br>
@@ -46,7 +35,7 @@ function AddUser(props) {
                             <TextField onChange={e => setUser({ ...user, name: e.target.value })} id="outlined-helperText" label="Name" size="small" />
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                            <EmailRoundedIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                            <EmailRounded sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                             <TextField onChange={e => setUser({ ...user, email: e.target.value })} id="outlined-helperText" label="Email" size="small" />
                         </Box>
                     </Stack>
