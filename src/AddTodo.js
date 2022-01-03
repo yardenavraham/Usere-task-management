@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react'
-// import './index.css';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import {Stack,Button,TextField,Box, Card, CardActions, CardContent} from '@mui/material';
 import CreateRoundedIcon from '@mui/icons-material/CreateRounded';
-import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+
 
 function AddTodo(props) {
     const [todo, setTodo] = useState({
