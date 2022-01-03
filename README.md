@@ -1,5 +1,5 @@
 #  
-<h1 align="center">:movie_camera: Users task management </h1>
+<h1 align="center">:pencil2: Users task management </h1>
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -17,9 +17,10 @@ Users task management web application. </br>
 
 
 ## Screen shots
-![Main Screen]()
-![Add user]()
-![User added]()
+![Completed tasks to ID 1](https://github.com/yardenavraham/React-users-task-management/blob/main/‏finishedtasks.jpeg‏‏)
+![Add new user](https://github.com/yardenavraham/React-users-task-management/blob/main/‏adduser.jpeg)
+![Add to the new user task and post](https://github.com/yardenavraham/React-users-task-management/blob/main/newUserWithTask.jpeg)
+
 
 
 ## Built with
@@ -28,6 +29,8 @@ Developed with React and Material UI.
 ## Installation
 Install Node.js</br>
 npm i axios </br>
+npm install @mui/material </br>
+npm install @mui/icons-material </br>
 
 
 ## How to use? 
