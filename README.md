@@ -17,7 +17,7 @@
 
 
 ## Screen shots
-![Completed tasks to ID 1](https://github.com/yardenavraham/React-users-task-management/public/screenShots/‏finishedtasks.jpeg‏‏)
+![Completed tasks to ID 1](finishedtasks.jpeg‏‏)
 ![Add new user](https://github.com/yardenavraham/React-users-task-management/public/screenShots/‏adduser.jpeg)
 ![Add to the new user task and post](https://github.com/yardenavraham/React-users-task-management/public/screenShots/newUserWithTask.jpeg)
 
