@@ -13,27 +13,24 @@
 </details>
 
 ## About The Project
-Movies management and subscribers web application. Building a Rest API server based on microservices architecture. The server manages data from web service and JSON files and provides different access permissions depending on the type of user. </br>
-As a user, you can search and create movies.</br>
-The search results page will show you a list of movies that match your search. You can find all the information about the movie (including an image of the data retrieved from the web service) by clicking on its name.
-In the user management page, the admin can add users, update details and delete.</br>
+
+
 
 ## Screen shots
-![login](https://github.com/yardenavraham/Search-Movies-App/blob/movies-project/login.jpeg)
-![search movie](https://github.com/yardenavraham/Search-Movies-App/blob/movies-project/seachmoviespic.jpeg)
-![search results](https://github.com/yardenavraham/Search-Movies-App/blob/movies-project/seachmoviesresultpic.jpeg)
-
+![Completed tasks to ID 1](https://github.com/yardenavraham/React-users-task-management/blob/main/‏finishedtasks.jpeg‏‏)
+![Add new user](https://github.com/yardenavraham/React-users-task-management/blob/main/‏adduser.jpeg)
+![Add to the new user task and post](https://github.com/yardenavraham/React-users-task-management/blob/main/newUserWithTask.jpeg)
 
 ## Built with
-Developed with Node.js and Express.
+Developed with React and Material UI.
 
 ## Installation
 Install Node.js</br>
-npm i express axios nodemon jsonfile</br>
+npm i axios </br>
+npm install @mui/material </br>
+npm install @mui/icons-material </br>
 
 ## How to use? 
-Click to see the [demo](https://demo-search-movies.herokuapp.com) of my app. </br>
+Click to see the [demo]() of my app. </br>
 
-USERNAME: Admin </br>
-PASSWORD: admin
 
