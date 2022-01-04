@@ -19,11 +19,12 @@ This application was developed with the help of React and Material UI.
 
 
 ## Screen shots
-:heavy_check_mark: Completed tasks of ID 1.</br>
-![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8F%E2%80%8Ffinishedtasks.jpeg)</br>
-:heavy_check_mark: Add new user.</br>
-![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8Fadduser.jpeg)</br>
-:heavy_check_mark: User added with one new task and post.</br>
+</br>
+:heavy_check_mark: Completed tasks of ID 1</br>
+![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8F%E2%80%8Ffinishedtasks.jpeg)</br></br>
+:heavy_check_mark: Add new user</br>
+![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8Fadduser.jpeg)</br></br>
+:heavy_check_mark: User added with one new task and post</br>
 ![Add to the new user task and post](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/newUserWithTask.jpeg
 )</br>
 
