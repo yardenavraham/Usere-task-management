@@ -15,11 +15,11 @@
 ## About The Project
 
 
-
 ## Screen shots
-![Completed tasks to ID 1](finishedtasks.jpeg‏‏)
-![Add new user](https://github.com/yardenavraham/React-users-task-management/public/screenShots/‏adduser.jpeg)
-![Add to the new user task and post](https://github.com/yardenavraham/React-users-task-management/public/screenShots/newUserWithTask.jpeg)
+![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/finishedtasks.jpeg‏‏)
+![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/adduser.jpeg)
+![Add to the new user task and post](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/newUserWithTask.jpeg
+)
 
 ## Built with
 Developed with React and Material UI.
