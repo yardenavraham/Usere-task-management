@@ -19,16 +19,19 @@ This application was developed with the help of React and Material UI.
 
 
 ## Screen shots
-![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8F%E2%80%8Ffinishedtasks.jpeg)
-![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8Fadduser.jpeg)
+:heavy_check_mark: Completed tasks of ID 1.</br>
+![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8F%E2%80%8Ffinishedtasks.jpeg)</br>
+:heavy_check_mark: Add new user.</br>
+![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8Fadduser.jpeg)</br>
+:heavy_check_mark: User added with one new task and post.</br>
 ![Add to the new user task and post](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/newUserWithTask.jpeg
-)
+)</br>
 
 ## Built with
 Developed with React and Material UI.
 
 ## Installation
-Install Node.js</br>
+Install Node.js. Click [here](https://nodejs.org/en/download/) to download.</br>
 ```
 npm i axios
 npm install @mui/material 
