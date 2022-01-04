@@ -15,7 +15,7 @@
 ## About The Project
 
 This app is designed to manage users and their tasks. You can add a user, task or post. When all the tasks of a particular user have been successfully completed, the border of that user will be painted green. As long as not all tasks have been completed, the border will be red. </br>You can also delete users, update users, delete tasks and posts.</br>
-This application was developed with the help of React and Material UI.
+The data is taken from a REST API of users, tasks and posts.
 
 
 ## Screen shots
