@@ -14,10 +14,13 @@
 
 ## About The Project
 
+This app is designed to manage users and their tasks. You can add a user, task or post. When all the tasks of a particular user have been successfully completed, the border of that user will be painted green. As long as not all tasks have been completed, the border will be red. </br>You can also delete users, update users, delete tasks and posts.</br>
+This application was developed with the help of React and Material UI.
+
 
 ## Screen shots
-![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/finishedtasks.jpeg‏‏)
-![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/adduser.jpeg)
+![Completed tasks to ID 1](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8F%E2%80%8Ffinishedtasks.jpeg)
+![Add new user](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/%E2%80%8Fadduser.jpeg)
 ![Add to the new user task and post](https://github.com/yardenavraham/Users-task-management/blob/main/public/screenShots/newUserWithTask.jpeg
 )
 
@@ -26,9 +29,11 @@ Developed with React and Material UI.
 
 ## Installation
 Install Node.js</br>
-npm i axios </br>
-npm install @mui/material </br>
-npm install @mui/icons-material </br>
+```
+npm i axios
+npm install @mui/material 
+npm install @mui/icons-material
+```
 
 ## How to use? 
 Click to see the [demo]() of my app. </br>
